@@ -49,23 +49,22 @@ class PageController extends Controller
 
         }else{
             $pageObj = Page::where('id', $request->updateid)->get()->first();
-                if(!$pageObj){
-                    $pageObj = new Page();
-                    $pageObj->parent_id = $request->parent_id;
-                    $pageObj->title = $request->title;
-                    $pageObj->content = $request->content;
-                    $pageObj->slug = Str::slug($request->title);
-                    $pageObj->save();
-                    return redirect('/page-list')->with('status', 'Page created');
-                }else{
-                    $pageObj->parent_id = $request->parent_id;
-                    $pageObj->title = $request->title;
-                    $pageObj->content = $request->content;
-                    $pageObj->slug = Str::slug($request->title);
-                    $pageObj->save();
-                    return redirect('/page')->with('status', 'Page updated');
-                }
-            
+            if(!$pageObj){
+                $pageObj = new Page();
+                $pageObj->parent_id = $request->parent_id;
+                $pageObj->title = $request->title;
+                $pageObj->content = $request->content;
+                $pageObj->slug = Str::slug($request->title);
+                $pageObj->save();
+                return redirect('/page-list')->with('status', 'Page created');
+            }else{
+                $pageObj->parent_id = $request->parent_id;
+                $pageObj->title = $request->title;
+                $pageObj->content = $request->content;
+                $pageObj->slug = Str::slug($request->title);
+                $pageObj->save();
+                return redirect('/page-list')->with('status', 'Page updated');
+            }
         }
         
         //return view('admin.page');

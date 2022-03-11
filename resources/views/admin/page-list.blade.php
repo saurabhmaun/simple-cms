@@ -62,12 +62,8 @@
                                     <td>{{$page->parent_id}}</td>
                                     
                                     <td><a href="{{url('page/edit/'.$page->id)}}">Edit</a>
-                                        <a href="{{url('page/delete/'.$page->id)}}">delete</a>
-                                        <a href="{{url('page/delete/'.$page->id)}}">View</a>
-                                        <?php 
-                                        // print_r($page->get_parent()->id)
-                                        ?>
-                                        
+                                        <!-- <a href="{{url('page/delete/'.$page->id)}}">delete</a>
+                                        <a href="{{url('page/delete/'.$page->id)}}">View</a> -->                                        
                                     </td>
                                 </tr>
                                 @endforeach
